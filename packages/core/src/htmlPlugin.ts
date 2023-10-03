@@ -141,7 +141,7 @@ export function createPlugin(userOptions: UserOptions = {}): PluginOption {
 
       await Promise.all(
         htmlFiles.map((file) =>
-          fs.move(file, path.resolve(cwd, path.basename(file)), {
+          fs.copy(file, path.resolve(cwd, path.basename(file)), {
             overwrite: true,
           }),
         ),
@@ -295,11 +295,7 @@ export function getPageConfig(
   }
 
   const page = pages.filter((page) => {
-    // Path to specified file path, if not to template path
-    return (
-      path.resolve('/' + page.filename || page.template) ===
-      path.resolve('/' + htmlName)
-    )
+    return path.resolve('/' + page.template) === path.resolve('/' + htmlName)
   })?.[0]
   return page ?? defaultPageOption ?? undefined
 }
@@ -336,8 +332,7 @@ function createRewire(
 
       const excludeBaseUrl = pathname.replace(baseUrl, '/')
 
-      // Path to specified file path, if not to template path
-      const template = path.resolve(baseUrl, page.filename || page.template)
+      const template = path.resolve(baseUrl, page.template)
 
       if (excludeBaseUrl === '/') {
         return template
