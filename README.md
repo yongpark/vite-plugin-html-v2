@@ -1,4 +1,4 @@
-# vite-plugin-html
+# vite-plugin-html-v2
 
 **English** | [中文](./README.zh_CN.md)
 
@@ -17,13 +17,13 @@
 **vite version:** >=2.0.0
 
 ```bash
-yarn add vite-plugin-html -D
+yarn add vite-plugin-html-v2 -D
 ```
 
 或
 
 ```bash
-npm i vite-plugin-html -D
+npm i vite-plugin-html-v2 -D
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ npm i vite-plugin-html -D
 import { defineConfig, Plugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-import { createHtmlPlugin } from 'vite-plugin-html'
+import { createHtmlPlugin } from 'vite-plugin-html-v2'
 
 export default defineConfig({
   plugins: [
@@ -91,7 +91,7 @@ Multi-page application configuration
 
 ```ts
 import { defineConfig } from 'vite'
-import { createHtmlPlugin } from 'vite-plugin-html'
+import { createHtmlPlugin } from 'vite-plugin-html-v2'
 
 export default defineConfig({
   plugins: [
